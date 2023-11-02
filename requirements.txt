@@ -1,0 +1,5 @@
+jsonpath==0.82
+jsonpath-ng==1.6.0
+gjson==1.0.0
+jmespath==1.0.1
+py-spy==0.3.14
