@@ -87,10 +87,21 @@ def func_calls_profile(func, data, path):
 
 def test_func_calls_profile(data):
     # data = read_from_file("big.json")
+    print("*" * 20 + f' test_jsonpath func_calls_profile start {"*" * 20}\n')
     func_calls_profile(test_jsonpath, data, "10.errors.113.description")
+    print("*" * 20 + f' test_jsonpath func_calls_profile end {"*" * 20}\n')
+
+    print("*" * 20 + f' test_gjson func_calls_profile start {"*" * 20}\n')
     func_calls_profile(test_gjson, data, "10.errors.113.description")
+    print("*" * 20 + f' test_gjson func_calls_profile end {"*" * 20}\n')
+
+    print("*" * 20 + f' test_jsonpath_ng func_calls_profile start {"*" * 20}\n')
     func_calls_profile(test_jsonpath_ng, data, "[10].errors.[113].description")
+    print("*" * 20 + f' test_jsonpath_ng func_calls_profile end {"*" * 20}\n')
+
+    print("*" * 20 + f' test_jmespath func_calls_profile start {"*" * 20}\n')
     func_calls_profile(test_jmespath, data, "[10].errors[113].description")
+    print("*" * 20 + f' test_jmespath func_calls_profile end {"*" * 20}\n')
 
 
 def run1(data, num_tasks=1):
