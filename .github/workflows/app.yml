@@ -3,7 +3,7 @@ name: Python Application Workflow
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
