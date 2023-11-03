@@ -85,18 +85,29 @@ def func_calls_profile(func, data, path):
     stats.print_stats()
 
 
-def test_func_calls_profile():
-    data = read_from_file("big.json")
+def test_func_calls_profile(data):
+    # data = read_from_file("big.json")
     func_calls_profile(test_jsonpath, data, "10.errors.113.description")
     func_calls_profile(test_gjson, data, "10.errors.113.description")
     func_calls_profile(test_jsonpath_ng, data, "[10].errors.[113].description")
     func_calls_profile(test_jmespath, data, "[10].errors[113].description")
 
 
+def run1(data, num_tasks=1):
+    print(f"run{num_tasks=} start\n")
+    test_memory(data, num_tasks)
+    print(f"run{num_tasks=} end\n")
+
+
+def run1000(data, num_tasks=1000):
+    print(f"run{num_tasks=} start\n")
+    test_memory(data, num_tasks)
+    print(f"run{num_tasks=} end\n")
+
+
 if __name__ == "__main__":
     data = read_from_file("big.json")
-    num_tasks = 1000
-    # num_tasks = 1
 
-    test_memory(data, num_tasks)
-    # test_func_calls_profile()
+    run1(data)
+    run1000(data)
+    test_func_calls_profile(data)
